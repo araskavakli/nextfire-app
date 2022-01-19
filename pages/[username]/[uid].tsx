@@ -4,8 +4,8 @@ import { firestore, getUserWithUsername, postToJSON } from '../../lib/firebase';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import React, { useContext } from 'react';
 import { UserContext } from '../../lib/context';
-import MetaTags from 'react-meta-tags';
 import Link from 'next/link';
+import Metatags from '../../components/Metatags';
 
 
 export async function getStaticProps({ params }) {
@@ -59,7 +59,7 @@ export default function Post(props) {
   
     return (
       <main className={styles.container}>
-        <MetaTags title={post.title} description={post.title} />
+        <Metatags title={post.title} description={post.title} />
         
         <section>
           <PostContent post={post} />
@@ -81,7 +81,7 @@ export default function Post(props) {
           </AuthCheck> */}
   
           {currentUser?.uid === post.uid && (
-            <Link href={`/admin/${post.slug}`}>
+            <Link href={`/admin/${post.id}`}>
               <button className="btn-blue">Edit Post</button>
             </Link>
           )}

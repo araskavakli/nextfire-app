@@ -18,7 +18,7 @@ function PostItem({ post, admin = false }) {
         </a>
       </Link>
 
-      <Link href={`/${post.username}/${post.uid}`}>
+      <Link href={`/${post.username}/${post.id}`}>
         <h2>
           <a>{post.title}</a>
         </h2>
@@ -34,7 +34,7 @@ function PostItem({ post, admin = false }) {
       {/* If admin view, show extra controls for user */}
       {admin && (
         <>
-          <Link href={`/admin/${post.slug}`}>
+          <Link href={`/admin/${post.id}`}>
             <h3>
               <button className="btn-blue">Edit</button>
             </h3>
